@@ -1,0 +1,50 @@
+- Console
+- Domain
+- Teste
+
+Loja
+- Id
+- Nome
+
+Expediente
+- Dia Semana
+- Abertura
+- Fechamento
+
+ExpedienteLoja
+- IdLoja
+- ListFuncionamento
+- bool 24hs
+
+FuncionamentoLojas
+- ObterHorariosAtendimento()
+- EstaAberta(DateTime data)
+
+======================================================================================================
+
+Eu tenho 3 lojas físicas, que sao a base do meu império milionário. 
+
+- Uma fica em Israel
+- Outra fica em Nova Iorque
+- Outra fica em São Paulo
+
+- Em Israel, o sábado é sagrado, com uma cultura calcada na religião, ninguém trabalha aos sábados, é o dia do descanso.
+Logo, a loja de Israel não abre de sábado. Nos demais dias ela funciona das 8 as 19.
+
+- Em Nova Iorque, cidade que nunca dorme, ela funciona todos os dias da semana, 24h.
+
+- Em São Paulo, ela funciona de segunda a sexta das 09 as 18, aos sabados das 10 as 16 e aos domingos das 10 as 13
+
+- Preciso consultar os horarios que cada loja fica aberta. (lista de dias / horarios)
+
+- Preciso consultar o status da loja, com base na data ele retorna se a loja esta aberta ou fechada nessa data. Para isso, voce vai precisar de:
+
+- orientaçao a objetos
+- SOLID
+- Teste unitario
+- nao precisa de banco, nem de api
+- voce pode usar o conceito de dominio rico e a propria classe pode ficar responsavel pelas suas regras de negocio.
+ou seja, eu vou basicamente chamar  
+
+- Classe.ObterHorariosAtendimento()
+- Classe.EstaAberta(DateTime data)
