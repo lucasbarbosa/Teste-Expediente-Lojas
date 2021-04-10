@@ -7,14 +7,52 @@ namespace ExpedienteLojas.Dominio.Classes
 {
     public class FuncionamentoLojas
     {
+        #region Atributos
+
         private readonly Loja _loja;
+
         private readonly IList<ExpedienteLoja> _expedienteLojas;
+
+        #endregion
+
+        #region Construtores
 
         public FuncionamentoLojas(Loja loja)
         {
             _loja = loja;
             _expedienteLojas = new List<ExpedienteLoja>();
 
+            SetExpedienteLojas();
+        }
+
+        #endregion
+
+        #region Métodos Públicos
+
+        public ExpedienteLoja ObterHorariosAtendimento()
+        {
+            var retorno = _expedienteLojas.FirstOrDefault(e => e.Loja == _loja);
+
+            return retorno;
+        }
+
+        public bool EstaAberta(DateTime data)
+        {
+            var retorno = _expedienteLojas.Any(l => l.Loja == _loja
+                 && (
+                     l.Expediente24hs ||
+                     l.Expediente.Any(e => e.DiaDaSemana == data.DayOfWeek && data.TimeOfDay >= e.Abertura && data.TimeOfDay <= e.Fechamento)
+                 ));
+
+            return retorno;
+        }
+
+        #endregion
+
+        #region Métodos Privados
+
+        private void SetExpedienteLojas()
+        {
             _expedienteLojas.Add(
                 new ExpedienteLoja
                 {
@@ -53,18 +91,6 @@ namespace ExpedienteLojas.Dominio.Classes
                 });
         }
 
-        public ExpedienteLoja ObterHorariosAtendimento()
-        {
-            return _expedienteLojas.FirstOrDefault(e => e.Loja == _loja);
-        }
-
-        public bool EstaAberta(DateTime data)
-        {
-            return _expedienteLojas.Any(l => l.Loja == _loja
-                && (
-                    l.Expediente24hs ||
-                    l.Expediente.Any(e => e.DiaDaSemana == data.DayOfWeek && data.TimeOfDay >= e.Abertura && data.TimeOfDay <= e.Fechamento)
-                ));
-        }
+        #endregion
     }
 }
