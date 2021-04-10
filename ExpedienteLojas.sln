@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpedienteLojas.Dominio", "src\ExpedienteLojas.Dominio\ExpedienteLojas.Dominio.csproj", "{520F7B2C-1616-4A89-8863-0FCBB95F2776}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpedienteLojas.Testes", "src\ExpedienteLojas.Testes\ExpedienteLojas.Testes.csproj", "{342B7334-46CD-454C-8799-E0C95C60D5F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{520F7B2C-1616-4A89-8863-0FCBB95F2776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{520F7B2C-1616-4A89-8863-0FCBB95F2776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{520F7B2C-1616-4A89-8863-0FCBB95F2776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{520F7B2C-1616-4A89-8863-0FCBB95F2776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{342B7334-46CD-454C-8799-E0C95C60D5F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{342B7334-46CD-454C-8799-E0C95C60D5F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{342B7334-46CD-454C-8799-E0C95C60D5F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{342B7334-46CD-454C-8799-E0C95C60D5F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D9374EB-D36D-44F5-9E17-E1682FEF7CFA}
+	EndGlobalSection
+EndGlobal
