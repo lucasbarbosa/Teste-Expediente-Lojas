@@ -1,4 +1,4 @@
-### Desafio Expediente Lojas
+# Desafio Expediente Lojas
 
 Eu tenho 3 lojas físicas, que são a base do meu império milionário:
 - Uma fica em Israel
