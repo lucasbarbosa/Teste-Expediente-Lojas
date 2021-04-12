@@ -1,11 +1,8 @@
-using ExpedienteLojas.Negocio.Classes;
-using ExpedienteLojas.Negocio.Interfaces;
-using ExpedienteLojas.Negocio.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using ExpedienteLojas.Api.Configuration;
 
 namespace ExpedienteLojas.Api
 {
@@ -21,31 +18,19 @@ namespace ExpedienteLojas.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddDependencyInjectionConfig();
 
-            // Dependency Injection
-            services.AddScoped<IFuncionamentoLojas, FuncionamentoLojas>();
-            services.AddScoped<IFuncionamentoLojasRepositorio, FuncionamentoLojasRepositorio>();
+            services.AddApiConfig();
+
+            services.AddSwaggerConfig();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseApiConfig(env);
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseSwaggerConfig();
         }
     }
 }
