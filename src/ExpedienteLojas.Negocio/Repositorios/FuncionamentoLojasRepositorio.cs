@@ -1,15 +1,15 @@
-﻿using ExpedienteLojas.Dominio.Enum;
+﻿using ExpedienteLojas.Negocio.Classes;
+using ExpedienteLojas.Negocio.Enum;
+using ExpedienteLojas.Negocio.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ExpedienteLojas.Dominio.Classes
+namespace ExpedienteLojas.Negocio.Repositorios
 {
-    public class FuncionamentoLojas
+    public class FuncionamentoLojasRepositorio : IFuncionamentoLojasRepositorio
     {
         #region Atributos
-
-        private readonly Loja _loja;
 
         private readonly IList<ExpedienteLoja> _expedienteLojas;
 
@@ -17,9 +17,8 @@ namespace ExpedienteLojas.Dominio.Classes
 
         #region Construtores
 
-        public FuncionamentoLojas(Loja loja)
+        public FuncionamentoLojasRepositorio()
         {
-            _loja = loja;
             _expedienteLojas = new List<ExpedienteLoja>();
 
             SetExpedienteLojas();
@@ -29,16 +28,16 @@ namespace ExpedienteLojas.Dominio.Classes
 
         #region Métodos Públicos
 
-        public ExpedienteLoja ObterHorariosAtendimento()
+        public ExpedienteLoja ObterHorariosAtendimento(Loja loja)
         {
-            var retorno = _expedienteLojas.FirstOrDefault(e => e.Loja == _loja);
+            var retorno = _expedienteLojas.FirstOrDefault(e => e.Loja == loja);
 
             return retorno;
         }
 
-        public bool EstaAberta(DateTime data)
+        public bool EstaAberta(Loja loja, DateTime data)
         {
-            var retorno = _expedienteLojas.Any(l => l.Loja == _loja
+            var retorno = _expedienteLojas.Any(l => l.Loja == loja
                  && (
                      l.Expediente24hs ||
                      l.Expediente.Any(e => e.DiaDaSemana == data.DayOfWeek && data.TimeOfDay >= e.Abertura && data.TimeOfDay <= e.Fechamento)

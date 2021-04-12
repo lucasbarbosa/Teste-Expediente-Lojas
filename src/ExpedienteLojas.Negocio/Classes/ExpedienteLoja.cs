@@ -1,8 +1,8 @@
-﻿using ExpedienteLojas.Dominio.Enum;
+﻿using ExpedienteLojas.Negocio.Enum;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ExpedienteLojas.Dominio.Classes
+namespace ExpedienteLojas.Negocio.Classes
 {
     public class ExpedienteLoja
     {

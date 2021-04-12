@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ExpedienteLojas.Dominio.Enum
+namespace ExpedienteLojas.Negocio.Enum
 {
     public enum Loja
     {

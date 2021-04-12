@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExpedienteLojas.Dominio.Classes
+namespace ExpedienteLojas.Negocio.Classes
 {
     public class Expediente
     {
