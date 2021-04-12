@@ -21,17 +21,35 @@ namespace ExpedienteLojas.Api.V1.Controllers
         [HttpGet("GetExpediente")]
         public ActionResult<ExpedienteLoja> GetExpediente(Loja loja)
         {
-            var expediente = _funcionamentoLojas.ObterHorariosAtendimento(loja);
+            try
+            {
+                var expediente = _funcionamentoLojas.ObterHorariosAtendimento(loja);
 
-            return CustomResponse(expediente);
+                return CustomResponse(expediente);
+            }
+            catch (Exception ex)
+            {
+                AddError(ex.Message);
+
+                return CustomResponse();
+            }
         }
 
         [HttpGet("GetLojaAberta")]
         public ActionResult<bool> GetLojaAberta(Loja loja, DateTime data)
         {
-            var estaAberta = _funcionamentoLojas.EstaAberta(loja, data);
+            try
+            {
+                var estaAberta = _funcionamentoLojas.EstaAberta(loja, data);
 
-            return CustomResponse(estaAberta);
+                return CustomResponse(estaAberta);
+            }
+            catch (Exception ex)
+            {
+                AddError(ex.Message);
+
+                return CustomResponse();
+            }
         }
     }
 }
